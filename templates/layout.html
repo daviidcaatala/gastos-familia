@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Finanzas David Catalá</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --azul: #1a3a5a;
+        }
+
+        body {
+            background-color: #f4f7f9;
+        }
+
+        .navbar {
+            background-color: var(--azul) !important;
+        }
+
+        .nav-link.active {
+            background: #2c5d8f;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/">DAVID CATALÁ</a>
+            <div class="navbar-nav ml-auto">
+                {% for id, nombre in meses_nav.items() %}
+                <a class="nav-item nav-link {% if id == mes_id %}active{% endif %}"
+                   href="{{ url_for('ver_mes', mes_id=id) }}">{{ nombre }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+    <div class="container">{% block content %}{% endblock %}</div>
+</body>
+</html>
