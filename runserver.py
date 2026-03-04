@@ -3,8 +3,7 @@ This script runs the Casa_Phyton application using a development server.
 """
 
 from os import environ
-from Casa_Phyton import app
-
+from views import app
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')
     try:
@@ -12,3 +11,4 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
+
