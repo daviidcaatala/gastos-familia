@@ -1,7 +1,8 @@
 import os
 from datetime import datetime
 from flask import render_template, request, redirect, url_for
-from Casa_Phyton import app
+from flask import Flask
+app = Flask(__name__)
 from flask_sqlalchemy import SQLAlchemy
 
 # --- CONFIGURACIÓN DE BASE DE DATOS (SQLite para Hosting Gratis) ---
@@ -79,4 +80,5 @@ with app.app_context():
 
 if __name__ == '__main__':
     # El host '0.0.0.0' permite que otros dispositivos entren si usas tu PC como servidor temporal
+
     app.run(host='0.0.0.0', port=5000, debug=True)
